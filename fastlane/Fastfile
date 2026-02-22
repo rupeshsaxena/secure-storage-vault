@@ -1,0 +1,143 @@
+default_platform(:ios)
+
+platform :ios do
+
+  # ── Before all lanes ───────────────────────────────────
+  before_all do
+    ensure_env_vars(
+      env_vars: ["APPLE_ID", "TEAM_ID", "ITC_TEAM_ID",
+                 "MATCH_REPO_URL", "MATCH_PASSWORD"]
+    )
+  end
+
+  # ── Sync certs (read-only) ────────────────────────────
+  lane :certs do
+    match(type: "appstore", readonly: true)
+  end
+
+  lane :certs_dev do
+    match(type: "development", readonly: false)
+  end
+
+  # ── Run unit tests ────────────────────────────────────
+  lane :tests do
+    run_tests(
+      scheme: "SecureCloud",
+      device: "iPhone 16 Pro",
+      clean: true,
+      output_directory: "fastlane/test_output",
+      output_files: "report.junit",
+      result_bundle: true
+    )
+  end
+
+  # ── Beta → TestFlight ─────────────────────────────────
+  lane :beta do
+    # 1. Sync certs
+    match(type: "appstore", readonly: true)
+
+    # 2. Bump build number from latest TestFlight
+    increment_build_number(
+      build_number: latest_testflight_build_number + 1
+    )
+
+    # 3. Build
+    gym(
+      scheme:            "SecureCloud",
+      configuration:     "Release",
+      clean:             true,
+      export_method:     "app-store",
+      output_directory:  "./build",
+      output_name:       "SecureCloud.ipa",
+      include_bitcode:   false,
+      include_symbols:   true,
+      xcargs:            "-allowProvisioningUpdates"
+    )
+
+    # 4. Upload to TestFlight
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true,
+      notify_external_testers:           false,
+      changelog: changelog_from_git_commits(
+        commits_count: 10,
+        pretty: "• %s"
+      )
+    )
+
+    # 5. Notify (optional)
+    if ENV["SLACK_WEBHOOK_URL"]
+      slack(
+        message:     "SecureCloud beta uploaded to TestFlight ✅",
+        channel:     "#ios-releases",
+        webhook_url: ENV["SLACK_WEBHOOK_URL"]
+      )
+    end
+  end
+
+  # ── Release → App Store ───────────────────────────────
+  lane :release do
+    # 1. Always run tests before shipping
+    tests
+
+    # 2. Sync certs
+    match(type: "appstore", readonly: true)
+
+    # 3. Bump versions
+    increment_version_number(bump_type: "patch")
+    increment_build_number(build_number: Time.now.strftime("%Y%m%d%H%M"))
+
+    # 4. Build
+    gym(
+      scheme:           "SecureCloud",
+      configuration:    "Release",
+      clean:            true,
+      export_method:    "app-store",
+      output_directory: "./build",
+      output_name:      "SecureCloud.ipa"
+    )
+
+    # 5. Submit for App Store review
+    deliver(
+      submit_for_review:    true,
+      automatic_release:    false,   # Manual release after approval
+      force:                true,
+      skip_screenshots:     true,
+      skip_metadata:        false,
+      reject_if_possible:   true,
+      submission_information: {
+        add_id_info_uses_idfa:                              false,
+        export_compliance_uses_encryption:                  true,
+        export_compliance_encryption_updated:               false,
+        export_compliance_is_exempt:                        true,    # Standard crypto (EAR exempt)
+        export_compliance_contains_third_party_cryptography: false
+      }
+    )
+
+    # 6. Tag release
+    push_git_tags
+  end
+
+  # ── App Store screenshots ─────────────────────────────
+  lane :screenshots do
+    capture_screenshots(
+      scheme:                     "SecureCloudUITests",
+      devices:                    ["iPhone 16 Pro", "iPhone 16 Pro Max", "iPad Pro 13-inch (M4)"],
+      languages:                  ["en-US"],
+      output_directory:           "./fastlane/screenshots",
+      clear_previous_screenshots: true
+    )
+    frame_screenshots(white: true)
+  end
+
+  # ── Error handler ─────────────────────────────────────
+  error do |lane, exception|
+    if ENV["SLACK_WEBHOOK_URL"]
+      slack(
+        message:     "SecureCloud #{lane} lane failed: #{exception.message}",
+        success:     false,
+        webhook_url: ENV["SLACK_WEBHOOK_URL"]
+      )
+    end
+  end
+
+end

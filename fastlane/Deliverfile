@@ -1,0 +1,17 @@
+app_identifier "com.securecloud.vault"
+username ENV["APPLE_ID"]
+
+name({ "en-US" => "SecureCloud — Secure Vault" })
+
+privacy_url({ "en-US" => "https://securecloud.app/privacy" })
+support_url({ "en-US" => "https://securecloud.app/support" })
+marketing_url({ "en-US" => "https://securecloud.app" })
+
+primary_category "UTILITIES"
+secondary_category "PRODUCTIVITY"
+
+content_rating({
+  "CARTOON_FANTASY_VIOLENCE"    => "NONE",
+  "REALISTIC_VIOLENCE"          => "NONE",
+  "MATURE_OR_SUGGESTIVE_THEMES" => "NONE"
+})

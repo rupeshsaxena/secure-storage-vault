@@ -1,0 +1,66 @@
+# Xcode
+*.xcworkspace/xcuserdata/
+*.xcworkspace/xcshareddata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+build/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+# SPM
+.build/
+.swiftpm/
+**/Package.resolved    # uncommit if you want reproducible builds
+
+# Swift
+*.o
+*.d
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output/
+*.ipa
+
+# Environment (never commit secrets)
+.env
+.env.local
+.env.*.local
+
+# CocoaPods (not used, but guard against accidental init)
+Pods/
+
+# Instruments
+*.trace
+
+# AppCode
+.idea/
+*.iml
+
+# Vim
+*.swp
+*.swo
+
+# JetBrains
+.idea
+
+# Woff2 fonts (keep only TTF)
+*.woff2

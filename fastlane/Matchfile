@@ -1,0 +1,5 @@
+git_url ENV["MATCH_REPO_URL"]   # Private repo for certificates + profiles
+type "appstore"                  # Default; override per lane
+app_identifier ["com.securecloud.vault"]
+username ENV["APPLE_ID"]
+readonly false
