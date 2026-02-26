@@ -2,37 +2,36 @@ default_platform(:ios)
 
 platform :ios do
 
-  # ── Before all lanes ───────────────────────────────────
-  before_all do
-    ensure_env_vars(
-      env_vars: ["APPLE_ID", "TEAM_ID", "ITC_TEAM_ID",
-                 "MATCH_REPO_URL", "MATCH_PASSWORD"]
+  # ── Run unit tests ────────────────────────────────────
+  # No signing or Apple ID env vars required — safe for CI.
+  lane :tests do
+    run_tests(
+      scheme:           "SecureCloud",
+      device:           "iPhone 16 Pro",
+      clean:            true,
+      code_coverage:    true,
+      output_directory: "fastlane/test_output",
+      output_files:     "report.junit",
+      result_bundle:    true,
+      xcargs:           "CODE_SIGNING_ALLOWED=NO"
     )
   end
 
   # ── Sync certs (read-only) ────────────────────────────
   lane :certs do
+    _require_signing_env!
     match(type: "appstore", readonly: true)
   end
 
   lane :certs_dev do
+    _require_signing_env!
     match(type: "development", readonly: false)
-  end
-
-  # ── Run unit tests ────────────────────────────────────
-  lane :tests do
-    run_tests(
-      scheme: "SecureCloud",
-      device: "iPhone 16 Pro",
-      clean: true,
-      output_directory: "fastlane/test_output",
-      output_files: "report.junit",
-      result_bundle: true
-    )
   end
 
   # ── Beta → TestFlight ─────────────────────────────────
   lane :beta do
+    _require_signing_env!
+
     # 1. Sync certs
     match(type: "appstore", readonly: true)
 
@@ -43,15 +42,15 @@ platform :ios do
 
     # 3. Build
     gym(
-      scheme:            "SecureCloud",
-      configuration:     "Release",
-      clean:             true,
-      export_method:     "app-store",
-      output_directory:  "./build",
-      output_name:       "SecureCloud.ipa",
-      include_bitcode:   false,
-      include_symbols:   true,
-      xcargs:            "-allowProvisioningUpdates"
+      scheme:           "SecureCloud",
+      configuration:    "Release",
+      clean:            true,
+      export_method:    "app-store",
+      output_directory: "./build",
+      output_name:      "SecureCloud.ipa",
+      include_bitcode:  false,
+      include_symbols:  true,
+      xcargs:           "-allowProvisioningUpdates"
     )
 
     # 4. Upload to TestFlight
@@ -60,22 +59,18 @@ platform :ios do
       notify_external_testers:           false,
       changelog: changelog_from_git_commits(
         commits_count: 10,
-        pretty: "• %s"
+        pretty:        "• %s"
       )
     )
 
     # 5. Notify (optional)
-    if ENV["SLACK_WEBHOOK_URL"]
-      slack(
-        message:     "SecureCloud beta uploaded to TestFlight ✅",
-        channel:     "#ios-releases",
-        webhook_url: ENV["SLACK_WEBHOOK_URL"]
-      )
-    end
+    _slack_notify("SecureCloud beta uploaded to TestFlight ✅")
   end
 
   # ── Release → App Store ───────────────────────────────
   lane :release do
+    _require_signing_env!
+
     # 1. Always run tests before shipping
     tests
 
@@ -99,16 +94,16 @@ platform :ios do
     # 5. Submit for App Store review
     deliver(
       submit_for_review:    true,
-      automatic_release:    false,   # Manual release after approval
+      automatic_release:    false,
       force:                true,
       skip_screenshots:     true,
       skip_metadata:        false,
       reject_if_possible:   true,
       submission_information: {
-        add_id_info_uses_idfa:                              false,
-        export_compliance_uses_encryption:                  true,
-        export_compliance_encryption_updated:               false,
-        export_compliance_is_exempt:                        true,    # Standard crypto (EAR exempt)
+        add_id_info_uses_idfa:                               false,
+        export_compliance_uses_encryption:                   true,
+        export_compliance_encryption_updated:                false,
+        export_compliance_is_exempt:                         true,
         export_compliance_contains_third_party_cryptography: false
       }
     )
@@ -131,13 +126,32 @@ platform :ios do
 
   # ── Error handler ─────────────────────────────────────
   error do |lane, exception|
-    if ENV["SLACK_WEBHOOK_URL"]
-      slack(
-        message:     "SecureCloud #{lane} lane failed: #{exception.message}",
-        success:     false,
-        webhook_url: ENV["SLACK_WEBHOOK_URL"]
-      )
-    end
+    _slack_notify("SecureCloud `#{lane}` lane failed: #{exception.message}", success: false)
+  end
+
+  # ── Private helpers ───────────────────────────────────
+
+  # Raises an early, readable error when deployment env vars are absent.
+  private_lane :_require_signing_env! do
+    ensure_env_vars(
+      env_vars: [
+        "APPLE_ID",
+        "TEAM_ID",
+        "ITC_TEAM_ID",
+        "MATCH_REPO_URL",
+        "MATCH_PASSWORD"
+      ]
+    )
+  end
+
+  # Posts to Slack only when the webhook URL is configured.
+  private_lane :_slack_notify do |options|
+    next unless ENV["SLACK_WEBHOOK_URL"]
+    slack(
+      message:     options[:message] || options.first&.last || "",
+      success:     options.fetch(:success, true),
+      webhook_url: ENV["SLACK_WEBHOOK_URL"]
+    )
   end
 
 end

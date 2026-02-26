@@ -1,4 +1,7 @@
-name: Tests
+name: CI – PR Tests
+
+# Triggered on pull requests targeting main or develop.
+# Runs the Fastlane `tests` lane (no signing or TestFlight env vars needed).
 
 on:
   pull_request:
@@ -22,6 +25,15 @@ jobs:
       - name: Select Xcode
         run: sudo xcode-select -s /Applications/Xcode.app
 
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Install Fastlane
+        run: gem install fastlane --no-document
+
       - name: Cache SPM packages
         uses: actions/cache@v4
         with:
@@ -32,19 +44,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-spm-
 
-      - name: Build & test
-        run: |
-          xcodebuild test \
-            -project SecureCloud.xcodeproj \
-            -scheme SecureCloud \
-            -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=latest' \
-            -resultBundlePath TestResults.xcresult \
-            CODE_SIGNING_ALLOWED=NO \
-            | xcbeautify
+      - name: Run tests
+        run: fastlane ios tests
 
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: TestResults
-          path: TestResults.xcresult
+          name: TestResults-pr-${{ github.event.pull_request.number }}
+          path: fastlane/test_output/
