@@ -1,0 +1,41 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Build & Run (iPhone 17 Pro Simulator)",
+      "runtimeExecutable": "xcodebuild",
+      "runtimeArgs": [
+        "-project", "SecureCloud.xcodeproj",
+        "-scheme", "SecureCloud",
+        "-destination", "platform=iOS Simulator,name=iPhone 17 Pro",
+        "-configuration", "Debug",
+        "build"
+      ],
+      "port": 0
+    },
+    {
+      "name": "Fastlane: tests",
+      "runtimeExecutable": "fastlane",
+      "runtimeArgs": ["ios", "tests"],
+      "port": 0
+    },
+    {
+      "name": "Fastlane: beta (TestFlight)",
+      "runtimeExecutable": "fastlane",
+      "runtimeArgs": ["ios", "beta"],
+      "port": 0
+    },
+    {
+      "name": "Fastlane: release (App Store)",
+      "runtimeExecutable": "fastlane",
+      "runtimeArgs": ["ios", "release"],
+      "port": 0
+    },
+    {
+      "name": "xcodegen: regenerate project",
+      "runtimeExecutable": "xcodegen",
+      "runtimeArgs": ["generate", "--spec", "project.yml"],
+      "port": 0
+    }
+  ]
+}

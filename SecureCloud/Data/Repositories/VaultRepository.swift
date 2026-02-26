@@ -68,4 +68,8 @@ final class VaultRepository: VaultRepositoryProtocol, Sendable {
     func loadEncryptedData(for fileId: UUID) async throws -> Data {
         try await store.loadEncryptedData(for: fileId)
     }
+
+    func saveEncryptedData(_ data: Data, for fileId: UUID) async throws {
+        try await store.saveEncryptedData(data, for: fileId)
+    }
 }
