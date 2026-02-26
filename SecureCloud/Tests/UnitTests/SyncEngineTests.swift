@@ -95,4 +95,5 @@ final class MockVaultRepository: VaultRepositoryProtocol, Sendable {
     func updateFolder(_ folder: VaultFolder) async throws {}
     func deleteFolder(id: UUID) async throws {}
     func loadEncryptedData(for fileId: UUID) async throws -> Data { Data() }
+    func saveEncryptedData(_ data: Data, for fileId: UUID) async throws {}
 }

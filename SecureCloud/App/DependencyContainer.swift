@@ -3,13 +3,29 @@ import SwiftUI
 
 // MARK: - DependencyContainer
 
-final class DependencyContainer: Sendable {
+final class DependencyContainer: @unchecked Sendable {
     static let shared = DependencyContainer()
 
-    // MARK: - Services
+    // MARK: - Legacy Services (SCV1 password-based)
 
     lazy var encryptionService: EncryptionServiceProtocol = EncryptionService()
     lazy var keychainService: KeychainServiceProtocol = KeychainService()
+
+    // MARK: - Secure Enclave Services (SCV2)
+
+    lazy var seService: SecureEnclaveServiceProtocol = SecureEnclaveService(
+        keychain: keychainService
+    )
+
+    lazy var seEncryptionService: SecureEnclaveEncryptionServiceProtocol =
+        SecureEnclaveEncryptionService()
+
+    lazy var keyVerificationService: KeyVerificationServiceProtocol =
+        KeyVerificationService()
+
+    // MARK: - Trusted Contacts Persistence
+
+    lazy var trustedContactsStore = TrustedContactsStore()
 
     // MARK: - Repositories
 

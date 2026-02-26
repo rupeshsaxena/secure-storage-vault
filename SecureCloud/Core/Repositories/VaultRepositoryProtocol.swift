@@ -20,4 +20,8 @@ protocol VaultRepositoryProtocol: Sendable {
 
     // MARK: Encrypted data access
     func loadEncryptedData(for fileId: UUID) async throws -> Data
+
+    /// Overwrite the encrypted blob for an existing file
+    /// (used when appending/removing FEKBlocks during SE share).
+    func saveEncryptedData(_ data: Data, for fileId: UUID) async throws
 }
