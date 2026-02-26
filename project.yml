@@ -96,10 +96,11 @@ targets:
       - path: SecureCloud/Tests/UnitTests
     dependencies:
       - target: SecureCloud
+        embed: false
     settings:
       base:
-        BUNDLE_LOADER: $(TEST_HOST)
-        TEST_HOST: $(BUILT_PRODUCTS_DIR)/SecureCloud.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SecureCloud
+        PRODUCT_MODULE_NAME: SecureCloudTests
+        ENABLE_TESTING_SEARCH_PATHS: YES
 
   SecureCloudUITests:
     type: bundle.ui-testing
@@ -108,3 +109,28 @@ targets:
       - path: SecureCloud/Tests/UITests
     dependencies:
       - target: SecureCloud
+    settings:
+      base:
+        PRODUCT_MODULE_NAME: SecureCloudUITests
+
+schemes:
+  SecureCloud:
+    build:
+      targets:
+        SecureCloud: [run, archive, profile, analyze]
+        SecureCloudTests: [test]
+        SecureCloudUITests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - name: SecureCloudTests
+          parallelizable: true
+          randomExecutionOrder: false
+        - name: SecureCloudUITests
+          parallelizable: false
+    profile:
+      config: Release
+    archive:
+      config: Release

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,9 @@
 		1C6F2CEF8C4182EA43C18409 /* VaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E25770374AB3F6D50F165C /* VaultView.swift */; };
 		1F79E7FD4DAD1CC3A5556081 /* FileRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71939B7BDC4D405858BC32FD /* FileRowView.swift */; };
 		2117E8A767173CE1B124420A /* MediaUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CFE26E453AAFBC105D7CC3 /* MediaUseCase.swift */; };
+		293430A93A011306215F4B07 /* VaultIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9B4B47E55B3D5E5C9CF3C /* VaultIdentity.swift */; };
 		29D36E1FBBBE166C9DB8EFAB /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B873F34381F6B0D0D1AA8 /* Tokens.swift */; };
+		38AAAFA1A91E9FBDA02F1F81 /* KeyVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A8382BF565AF2FC43235E3 /* KeyVerificationService.swift */; };
 		3D8917057CF74634E092789C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F5A5D0C036810C01A18AE1 /* SettingsViewModel.swift */; };
 		3F9F4ED9A2637AF0EDB34419 /* GlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A94ED37D6071656F4E9AAD7 /* GlassCard.swift */; };
 		40800E65E7637F61A5095F38 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 06F86A69E6771770D8CA1BCB /* Kingfisher */; };
@@ -35,9 +37,12 @@
 		63567BAC56CE2AAC4E8F9099 /* FolderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C011DF586BFB16F39B3DDA72 /* FolderCardView.swift */; };
 		6686BD3BEA724C60C9AC5BDC /* AddFileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44AA76CCD566F2D5548019A /* AddFileSheet.swift */; };
 		6928A27276C474C145EAB6ED /* ShareUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D610D10EBD691B34F9397 /* ShareUseCase.swift */; };
+		69B14557B383F6B90DA191A3 /* EncryptedFileHeaderV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A66AF9FED5317352BE66E3 /* EncryptedFileHeaderV2.swift */; };
 		7B24C88618A1ECF8239C2BD8 /* MetadataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C378CF8F3A303CBA13A213 /* MetadataStore.swift */; };
 		822355F15B188CA2BDAF585E /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B68C4CA6AB050A68A2E9D35 /* VideoPlayerView.swift */; };
 		8417B26054E8D80DF00CC308 /* SyncEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39677E4AD3C8B7DBFC1E1FAB /* SyncEngine.swift */; };
+		89BB8735B2BC35AD9D44AED4 /* TrustedContactsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB48A05F1EAC58BF7C9FF13 /* TrustedContactsStore.swift */; };
+		8A948B52B5936F79458CA6D1 /* SecureEnclaveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E324447ACB3488FE2B9A8FD /* SecureEnclaveService.swift */; };
 		8AA47253519CDD064DA2C21A /* ToggleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693A5D8F31A8A29034CFE33 /* ToggleRow.swift */; };
 		8B0D5983AF6053C583F94C05 /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF6B13E1AA477336B17327B /* SearchResultsView.swift */; };
 		8CE5190AA25204C1DC5D2667 /* VaultRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECCFE280BE5CAD5F473954 /* VaultRepositoryProtocol.swift */; };
@@ -49,10 +54,13 @@
 		B1777918EF5CAB58E00D4373 /* EncryptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9090A26F912AE7FCF256DF8C /* EncryptionService.swift */; };
 		B377FE04AB849B8C51386033 /* SyncStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5B9B744A8E504352F93BF8 /* SyncStatus.swift */; };
 		B4D9FF49B99CCF19564E02F3 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73691E3AE7DF1B0312CFDA2 /* AppState.swift */; };
+		B5073415CE254D8C6F97729B /* SecureEnclaveEncryptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474B9FDDAA4E122CD6608C03 /* SecureEnclaveEncryptionService.swift */; };
 		B58E5A40C3EDEDC0D5A3C76A /* SyncRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5502CB2FFE1264B8D53C9FFC /* SyncRepositoryProtocol.swift */; };
 		B5B988B7F4E338D971EF1B21 /* NewFolderSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEDE06B44C1EC3F6C03C073 /* NewFolderSheet.swift */; };
 		B5E9D63F4CB1965530BBFD5F /* NavBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EBD97D3FC202992A87492E /* NavBarModifier.swift */; };
 		BBA36B2166D04F9BCD2634C1 /* VaultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461AFF96DCCDB83A34F30413 /* VaultRepository.swift */; };
+		C231BCEBD56428122C61B9CE /* ContactShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61DF3E0437DBE74FD73B85 /* ContactShareView.swift */; };
+		C236CFFCD0296133A2917D1B /* SafetyCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA68D774200A49199F4D5F /* SafetyCodeView.swift */; };
 		C795A6BFB916411AB947818C /* Inter-Medium.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = B105B72F694469F9827DEC98 /* Inter-Medium.woff2 */; };
 		C79ED60F2D5A743AECDC92C4 /* EncryptionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F1D37F0C474127E1334C27 /* EncryptionUseCase.swift */; };
 		CD263C6EB16ED23AEF6D9474 /* AddDeviceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269EB28CE7EE40C919B7FD23 /* AddDeviceSheet.swift */; };
@@ -66,8 +74,11 @@
 		DA028F78EDC1D85D9C553A32 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B524F36ACE387F339DC6DE /* KeychainService.swift */; };
 		DA83431D428DBD15C810FBA7 /* Inter-Regular.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = E152DD93580DAB29CA35F63C /* Inter-Regular.woff2 */; };
 		DBCDCE6E6A4BAD8ECA3C41AD /* Inter-Bold.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = 0F73D480FAB9299B66124A21 /* Inter-Bold.woff2 */; };
+		DE5ED6EDBAC1EB7AFC2A6C56 /* TrustedContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B996AB8EE38D58CBC7066048 /* TrustedContact.swift */; };
+		E41CFFEF9FE7CD0C08ED2473 /* KeyFingerprintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641187B43C58E52CA3E58562 /* KeyFingerprintView.swift */; };
 		E557B8F42DE5BAC9E0394269 /* AudioPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A50BC36AF35ACE4DD998DF2 /* AudioPlayerViewModel.swift */; };
 		E8F628A85D982C1E25F0612F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E384BCDC459FFD5CE3B769 /* AppCoordinator.swift */; };
+		E9B56EB8C17839365E318EA9 /* FEKBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1FD1AC65475EF9C6A522B0 /* FEKBlock.swift */; };
 		F33087A1803F39420EDB63D1 /* VaultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5408FBD7ACC4C290410CCC39 /* VaultViewModel.swift */; };
 		F5D45CFF14CCEAE170D77476 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B34D382C9CC4FBB3504731 /* TabBar.swift */; };
 		F7FB8871C1DA42DD8835F883 /* SyncUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE392501CC7016E7E832C51 /* SyncUseCase.swift */; };
@@ -75,6 +86,7 @@
 		FC1898A065E7B08F1320081E /* VaultUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE03A5B1CA0C8877BB4B100 /* VaultUseCase.swift */; };
 		FC4DEFED9A9173D12AC6B3F4 /* SyncViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF58BD59FA3A92680498BA3 /* SyncViewModel.swift */; };
 		FD238B9C3F72351C6D7C4C61 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9217F08937AB3F4457EFAD6 /* SettingsView.swift */; };
+		FD5A0369688FADF8B5E0797D /* SecureEnclaveEncryptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8CC1A9756E5EF7F0D3414 /* SecureEnclaveEncryptionTests.swift */; };
 		FDA6E923744384DD2B72C70C /* FileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2F5585976510744EF3547 /* FileDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,10 +113,12 @@
 		0AECCFE280BE5CAD5F473954 /* VaultRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRepositoryProtocol.swift; sourceTree = "<group>"; };
 		0B0AE46BD0D782E71024A514 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		0CF6B13E1AA477336B17327B /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
-		0F73D480FAB9299B66124A21 /* Inter-Bold.woff2 */ = {isa = PBXFileReference; path = "Inter-Bold.woff2"; sourceTree = "<group>"; };
+		0EDA68D774200A49199F4D5F /* SafetyCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyCodeView.swift; sourceTree = "<group>"; };
+		0F73D480FAB9299B66124A21 /* Inter-Bold.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.woff2"; sourceTree = "<group>"; };
 		1405D6AD070FEE9286DCB6C3 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		17DDEEBEE3BE650A41108DBB /* LockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockViewModel.swift; sourceTree = "<group>"; };
 		1AA6476EA92E6EC5441588F7 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		21A8CC1A9756E5EF7F0D3414 /* SecureEnclaveEncryptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureEnclaveEncryptionTests.swift; sourceTree = "<group>"; };
 		269EB28CE7EE40C919B7FD23 /* AddDeviceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceSheet.swift; sourceTree = "<group>"; };
 		39677E4AD3C8B7DBFC1E1FAB /* SyncEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncEngine.swift; sourceTree = "<group>"; };
 		3A94ED37D6071656F4E9AAD7 /* GlassCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassCard.swift; sourceTree = "<group>"; };
@@ -112,6 +126,7 @@
 		3D5B9B744A8E504352F93BF8 /* SyncStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatus.swift; sourceTree = "<group>"; };
 		461AFF96DCCDB83A34F30413 /* VaultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRepository.swift; sourceTree = "<group>"; };
 		46B524F36ACE387F339DC6DE /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		474B9FDDAA4E122CD6608C03 /* SecureEnclaveEncryptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureEnclaveEncryptionService.swift; sourceTree = "<group>"; };
 		4AE03A5B1CA0C8877BB4B100 /* VaultUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultUseCase.swift; sourceTree = "<group>"; };
 		4C1C449AE3321EED0442B143 /* MediaRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaRepositoryProtocol.swift; sourceTree = "<group>"; };
 		519AE3FA8D501720A548367F /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
@@ -122,8 +137,10 @@
 		5A50BC36AF35ACE4DD998DF2 /* AudioPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewModel.swift; sourceTree = "<group>"; };
 		5AE99CD997EECF4A782CD3CE /* SyncView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncView.swift; sourceTree = "<group>"; };
 		5CEDE06B44C1EC3F6C03C073 /* NewFolderSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFolderSheet.swift; sourceTree = "<group>"; };
+		641187B43C58E52CA3E58562 /* KeyFingerprintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyFingerprintView.swift; sourceTree = "<group>"; };
 		64C378CF8F3A303CBA13A213 /* MetadataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataStore.swift; sourceTree = "<group>"; };
 		699B368007E4A59AC6DD9D4A /* VaultStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultStore.swift; sourceTree = "<group>"; };
+		6BD9B4B47E55B3D5E5C9CF3C /* VaultIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultIdentity.swift; sourceTree = "<group>"; };
 		6C297680759177E0F460EF87 /* VaultFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultFolder.swift; sourceTree = "<group>"; };
 		6FED65ABC8DA450C3E039A9D /* StatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBadge.swift; sourceTree = "<group>"; };
 		71939B7BDC4D405858BC32FD /* FileRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRowView.swift; sourceTree = "<group>"; };
@@ -133,22 +150,25 @@
 		7B68C4CA6AB050A68A2E9D35 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		7F9ED22DB70A7DDCDB1E9A3F /* VaultUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultUseCaseTests.swift; sourceTree = "<group>"; };
 		80D725071B33DC9A980A58ED /* SyncDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncDevice.swift; sourceTree = "<group>"; };
+		86A66AF9FED5317352BE66E3 /* EncryptedFileHeaderV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedFileHeaderV2.swift; sourceTree = "<group>"; };
 		8FE392501CC7016E7E832C51 /* SyncUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncUseCase.swift; sourceTree = "<group>"; };
 		9090A26F912AE7FCF256DF8C /* EncryptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionService.swift; sourceTree = "<group>"; };
 		90E25770374AB3F6D50F165C /* VaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultView.swift; sourceTree = "<group>"; };
-		91B3FEE922169ECB2D499DE3 /* Inter-SemiBold.woff2 */ = {isa = PBXFileReference; path = "Inter-SemiBold.woff2"; sourceTree = "<group>"; };
+		91B3FEE922169ECB2D499DE3 /* Inter-SemiBold.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.woff2"; sourceTree = "<group>"; };
 		932AB102533618CF0ACA9D41 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		97F5A5D0C036810C01A18AE1 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		999C2CEB308423E0FA18790A /* ChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipView.swift; sourceTree = "<group>"; };
 		99B34D382C9CC4FBB3504731 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		9AB32DCC0BA812E3AAD68500 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		9E324447ACB3488FE2B9A8FD /* SecureEnclaveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureEnclaveService.swift; sourceTree = "<group>"; };
 		A3F722D03C7469DD14D40624 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		A44AA76CCD566F2D5548019A /* AddFileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFileSheet.swift; sourceTree = "<group>"; };
 		A9E6A8536A512CB85DBA2D00 /* MediaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaRepository.swift; sourceTree = "<group>"; };
 		AB43FAE9FA2089A034A9C0EA /* VaultUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultUITests.swift; sourceTree = "<group>"; };
-		B105B72F694469F9827DEC98 /* Inter-Medium.woff2 */ = {isa = PBXFileReference; path = "Inter-Medium.woff2"; sourceTree = "<group>"; };
+		B105B72F694469F9827DEC98 /* Inter-Medium.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.woff2"; sourceTree = "<group>"; };
 		B804538D66DD4C184C6DD952 /* ScrubberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrubberView.swift; sourceTree = "<group>"; };
 		B9217F08937AB3F4457EFAD6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B996AB8EE38D58CBC7066048 /* TrustedContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedContact.swift; sourceTree = "<group>"; };
 		C011DF586BFB16F39B3DDA72 /* FolderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCardView.swift; sourceTree = "<group>"; };
 		C53D2185D79045D466A93959 /* SheetModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetModifier.swift; sourceTree = "<group>"; };
 		C62958C72FEC94B06958CD66 /* SecureCloud.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SecureCloud.entitlements; sourceTree = "<group>"; };
@@ -157,17 +177,21 @@
 		C8CFE26E453AAFBC105D7CC3 /* MediaUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaUseCase.swift; sourceTree = "<group>"; };
 		CA65C0EC65477D08AE06A1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CFF58BD59FA3A92680498BA3 /* SyncViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncViewModel.swift; sourceTree = "<group>"; };
-		D2A6866EBD5A7B0499A14D34 /* SecureCloudUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SecureCloudUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2A6866EBD5A7B0499A14D34 /* SecureCloudUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = file; name = SecureCloudUITests.xctest; path = SecureCloud.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49499C937292164D37D6F89 /* SyncEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncEngineTests.swift; sourceTree = "<group>"; };
+		D5A8382BF565AF2FC43235E3 /* KeyVerificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyVerificationService.swift; sourceTree = "<group>"; };
 		D73691E3AE7DF1B0312CFDA2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		DD0B873F34381F6B0D0D1AA8 /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
-		DE4C78D8A63A44744FE82B6A /* SecureCloud.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SecureCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE4C78D8A63A44744FE82B6A /* SecureCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecureCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F1D37F0C474127E1334C27 /* EncryptionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionUseCase.swift; sourceTree = "<group>"; };
-		E152DD93580DAB29CA35F63C /* Inter-Regular.woff2 */ = {isa = PBXFileReference; path = "Inter-Regular.woff2"; sourceTree = "<group>"; };
-		E9B3F1747818359566D95F2B /* SecureCloudTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SecureCloudTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E152DD93580DAB29CA35F63C /* Inter-Regular.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.woff2"; sourceTree = "<group>"; };
+		E9B3F1747818359566D95F2B /* SecureCloudTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = file; name = SecureCloudTests.xctest; path = SecureCloud.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA1FD1AC65475EF9C6A522B0 /* FEKBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FEKBlock.swift; sourceTree = "<group>"; };
+		EB61DF3E0437DBE74FD73B85 /* ContactShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactShareView.swift; sourceTree = "<group>"; };
 		F1E384BCDC459FFD5CE3B769 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		F37D610D10EBD691B34F9397 /* ShareUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareUseCase.swift; sourceTree = "<group>"; };
 		F693A5D8F31A8A29034CFE33 /* ToggleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleRow.swift; sourceTree = "<group>"; };
+		FBB48A05F1EAC58BF7C9FF13 /* TrustedContactsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedContactsStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				64C378CF8F3A303CBA13A213 /* MetadataStore.swift */,
+				FBB48A05F1EAC58BF7C9FF13 /* TrustedContactsStore.swift */,
 				699B368007E4A59AC6DD9D4A /* VaultStore.swift */,
 			);
 			path = Persistence;
@@ -236,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				783A97E6E4E75EF30C7BC9F0 /* EncryptionServiceTests.swift */,
+				21A8CC1A9756E5EF7F0D3414 /* SecureEnclaveEncryptionTests.swift */,
 				D49499C937292164D37D6F89 /* SyncEngineTests.swift */,
 				7F9ED22DB70A7DDCDB1E9A3F /* VaultUseCaseTests.swift */,
 			);
@@ -279,6 +305,9 @@
 			children = (
 				9090A26F912AE7FCF256DF8C /* EncryptionService.swift */,
 				46B524F36ACE387F339DC6DE /* KeychainService.swift */,
+				D5A8382BF565AF2FC43235E3 /* KeyVerificationService.swift */,
+				474B9FDDAA4E122CD6608C03 /* SecureEnclaveEncryptionService.swift */,
+				9E324447ACB3488FE2B9A8FD /* SecureEnclaveService.swift */,
 				39677E4AD3C8B7DBFC1E1FAB /* SyncEngine.swift */,
 			);
 			path = Services;
@@ -307,11 +336,15 @@
 		9938A83AE3AE89C2607FFC9C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				86A66AF9FED5317352BE66E3 /* EncryptedFileHeaderV2.swift */,
+				EA1FD1AC65475EF9C6A522B0 /* FEKBlock.swift */,
 				55FAE5B26B445249FB545A6D /* MediaItem.swift */,
 				80D725071B33DC9A980A58ED /* SyncDevice.swift */,
 				3D5B9B744A8E504352F93BF8 /* SyncStatus.swift */,
+				B996AB8EE38D58CBC7066048 /* TrustedContact.swift */,
 				081B7A5712134ED3CEBD1323 /* VaultFile.swift */,
 				6C297680759177E0F460EF87 /* VaultFolder.swift */,
+				6BD9B4B47E55B3D5E5C9CF3C /* VaultIdentity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -375,6 +408,7 @@
 				0CF6B13E1AA477336B17327B /* SearchResultsView.swift */,
 				90E25770374AB3F6D50F165C /* VaultView.swift */,
 				5408FBD7ACC4C290410CCC39 /* VaultViewModel.swift */,
+				F3A67BB5AF773ACF3E2B021C /* KeyVerification */,
 			);
 			path = Vault;
 			sourceTree = "<group>";
@@ -448,6 +482,16 @@
 				BF45B887E885D2182B350FFB /* UseCases */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		F3A67BB5AF773ACF3E2B021C /* KeyVerification */ = {
+			isa = PBXGroup;
+			children = (
+				EB61DF3E0437DBE74FD73B85 /* ContactShareView.swift */,
+				641187B43C58E52CA3E58562 /* KeyFingerprintView.swift */,
+				0EDA68D774200A49199F4D5F /* SafetyCodeView.swift */,
+			);
+			path = KeyVerification;
 			sourceTree = "<group>";
 		};
 		F84FCB3C2A1C7FC30D646F8A /* Products */ = {
@@ -593,14 +637,19 @@
 				E557B8F42DE5BAC9E0394269 /* AudioPlayerViewModel.swift in Sources */,
 				19D5089FBB717B1D09090CE7 /* BannerView.swift in Sources */,
 				60D60769F4031324482C931C /* ChipView.swift in Sources */,
+				C231BCEBD56428122C61B9CE /* ContactShareView.swift in Sources */,
 				057E5709A3967FF5BF0C85E6 /* DependencyContainer.swift in Sources */,
+				69B14557B383F6B90DA191A3 /* EncryptedFileHeaderV2.swift in Sources */,
 				B1777918EF5CAB58E00D4373 /* EncryptionService.swift in Sources */,
 				C79ED60F2D5A743AECDC92C4 /* EncryptionUseCase.swift in Sources */,
+				E9B56EB8C17839365E318EA9 /* FEKBlock.swift in Sources */,
 				FDA6E923744384DD2B72C70C /* FileDetailView.swift in Sources */,
 				1F79E7FD4DAD1CC3A5556081 /* FileRowView.swift in Sources */,
 				63567BAC56CE2AAC4E8F9099 /* FolderCardView.swift in Sources */,
 				4A5A3541B0FD25AD54983265 /* FolderContentsView.swift in Sources */,
 				3F9F4ED9A2637AF0EDB34419 /* GlassCard.swift in Sources */,
+				E41CFFEF9FE7CD0C08ED2473 /* KeyFingerprintView.swift in Sources */,
+				38AAAFA1A91E9FBDA02F1F81 /* KeyVerificationService.swift in Sources */,
 				DA028F78EDC1D85D9C553A32 /* KeychainService.swift in Sources */,
 				D8EAA401A97F9D24F0123570 /* LockView.swift in Sources */,
 				A6DBC46D8F1F4C351FB27EF2 /* LockViewModel.swift in Sources */,
@@ -611,9 +660,12 @@
 				7B24C88618A1ECF8239C2BD8 /* MetadataStore.swift in Sources */,
 				B5E9D63F4CB1965530BBFD5F /* NavBarModifier.swift in Sources */,
 				B5B988B7F4E338D971EF1B21 /* NewFolderSheet.swift in Sources */,
+				C236CFFCD0296133A2917D1B /* SafetyCodeView.swift in Sources */,
 				D10C73395A13D4E2AB988BCF /* ScrubberView.swift in Sources */,
 				8B0D5983AF6053C583F94C05 /* SearchResultsView.swift in Sources */,
 				93C48D7CA9EB895101D4D15E /* SecureCloudApp.swift in Sources */,
+				B5073415CE254D8C6F97729B /* SecureEnclaveEncryptionService.swift in Sources */,
+				8A948B52B5936F79458CA6D1 /* SecureEnclaveService.swift in Sources */,
 				FD238B9C3F72351C6D7C4C61 /* SettingsView.swift in Sources */,
 				3D8917057CF74634E092789C /* SettingsViewModel.swift in Sources */,
 				1AC175B3DF6D6DDE462EC394 /* ShareSheet.swift in Sources */,
@@ -631,8 +683,11 @@
 				F5D45CFF14CCEAE170D77476 /* TabBar.swift in Sources */,
 				8AA47253519CDD064DA2C21A /* ToggleRow.swift in Sources */,
 				29D36E1FBBBE166C9DB8EFAB /* Tokens.swift in Sources */,
+				DE5ED6EDBAC1EB7AFC2A6C56 /* TrustedContact.swift in Sources */,
+				89BB8735B2BC35AD9D44AED4 /* TrustedContactsStore.swift in Sources */,
 				AF5818BC81CECF6E2D1D5EAC /* VaultFile.swift in Sources */,
 				5E781A2986AD3C01DEFFD15E /* VaultFolder.swift in Sources */,
+				293430A93A011306215F4B07 /* VaultIdentity.swift in Sources */,
 				BBA36B2166D04F9BCD2634C1 /* VaultRepository.swift in Sources */,
 				8CE5190AA25204C1DC5D2667 /* VaultRepositoryProtocol.swift in Sources */,
 				B1471ACF0889EC77BADAE720 /* VaultStore.swift in Sources */,
@@ -656,6 +711,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9355B958EE5B4A37E6E179E /* EncryptionServiceTests.swift in Sources */,
+				FD5A0369688FADF8B5E0797D /* SecureEnclaveEncryptionTests.swift in Sources */,
 				D48E645AE1E3E99E65DEEBAE /* SyncEngineTests.swift in Sources */,
 				44540F45F4716C9CBB5221E4 /* VaultUseCaseTests.swift in Sources */,
 			);
@@ -687,6 +743,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.securecloud.SecureCloudUITests;
+				PRODUCT_MODULE_NAME = SecureCloudUITests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SecureCloud;
@@ -697,15 +754,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.securecloud.SecureCloudTests;
+				PRODUCT_MODULE_NAME = SecureCloudTests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SecureCloud.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SecureCloud";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SecureCloud.app/SecureCloud";
 			};
 			name = Release;
 		};
@@ -713,15 +772,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.securecloud.SecureCloudTests;
+				PRODUCT_MODULE_NAME = SecureCloudTests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SecureCloud.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SecureCloud";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SecureCloud.app/SecureCloud";
 			};
 			name = Debug;
 		};
@@ -731,7 +792,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SecureCloud/Resources/SecureCloud.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6NC2NB7N6P;
 				INFOPLIST_FILE = SecureCloud/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -887,7 +950,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SecureCloud/Resources/SecureCloud.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6NC2NB7N6P;
 				INFOPLIST_FILE = SecureCloud/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -908,6 +973,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.securecloud.SecureCloudUITests;
+				PRODUCT_MODULE_NAME = SecureCloudUITests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SecureCloud;

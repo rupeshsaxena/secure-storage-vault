@@ -52,6 +52,11 @@ actor VaultStore {
         return data
     }
 
+    func saveEncryptedData(_ data: Data, for fileId: UUID) throws {
+        guard files[fileId] != nil else { throw VaultStoreError.notFound }
+        encryptedBlobs[fileId] = data
+    }
+
     // MARK: - Folders
 
     func fetchFolders(in parentId: UUID?) -> [VaultFolder] {
